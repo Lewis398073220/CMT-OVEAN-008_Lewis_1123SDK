@@ -1,0 +1,304 @@
+
+arm_relu_q15.o:
+00000001 T arm_relu_q15
+
+arm_relu_q7.o:
+00000001 T arm_relu_q7
+
+arm_relu6_s8.o:
+00000001 T arm_relu6_s8
+
+arm_nn_activations_q15.o:
+00000001 T arm_nn_activations_direct_q15
+         U sigmoidTable_q15
+         U tanhTable_q15
+
+arm_nn_activations_q7.o:
+00000001 T arm_nn_activations_direct_q7
+         U sigmoidTable_q7
+         U tanhTable_q7
+
+arm_elementwise_mul_s8.o:
+00000001 T arm_elementwise_mul_s8
+
+arm_elementwise_add_s8.o:
+00000001 T arm_elementwise_add_s8
+
+arm_concatenation_s8_y.o:
+         U __aeabi_memcpy
+00000001 T arm_concatenation_s8_y
+
+arm_concatenation_s8_z.o:
+         U __aeabi_memcpy
+00000001 T arm_concatenation_s8_z
+
+arm_concatenation_s8_x.o:
+         U __aeabi_memcpy
+00000001 T arm_concatenation_s8_x
+
+arm_concatenation_s8_w.o:
+         U __aeabi_memcpy
+00000001 T arm_concatenation_s8_w
+
+arm_convolve_1x1_HWC_q15_q7_q31.o:
+         U __aeabi_assert
+00000001 T arm_convolve_1x1_HWC_q15_q7_q31
+00000001 T arm_convolve_1x1_HWC_q15_q7_q31_out_q31
+         U arm_mat_trans_q15
+         U __stack_chk_fail
+         U __stack_chk_guard
+
+arm_depthwise_conv_3x3_s8.o:
+00000001 T arm_depthwise_conv_3x3_s8
+
+arm_convolve_1x1_s8_fast.o:
+00000001 T arm_convolve_1x1_s8_fast
+00000001 T arm_convolve_1x1_s8_fast_get_buffer_size
+         U arm_nn_mat_mul_core_1x_s8
+         U arm_nn_mat_mul_core_4x_s8
+         U __stack_chk_fail
+         U __stack_chk_guard
+
+arm_depthwise_separable_conv_HWC_q7_nonsquare.o:
+         U __aeabi_memclr
+         U __aeabi_memcpy
+00000001 T arm_depthwise_separable_conv_HWC_q7_nonsquare
+
+arm_convolve_HWC_q15_fast_nonsquare.o:
+         U __aeabi_memclr
+         U __aeabi_memcpy
+00000001 T arm_convolve_HWC_q15_fast_nonsquare
+
+arm_convolve_HWC_q7_fast_nonsquare.o:
+         U __aeabi_memclr
+00000001 T arm_convolve_HWC_q7_fast_nonsquare
+         U arm_nn_mat_mult_kernel_q7_q15_reordered
+         U arm_q7_to_q15_reordered_no_shift
+
+arm_nn_mat_mult_kernel_s8_s16.o:
+00000001 T arm_nn_mat_mult_kernel_s8_s16
+
+arm_depthwise_conv_wrapper_s8.o:
+         U arm_depthwise_conv_s8
+         U arm_depthwise_conv_s8_opt
+         U arm_depthwise_conv_s8_opt_get_buffer_size
+00000001 T arm_depthwise_conv_wrapper_s8
+00000001 T arm_depthwise_conv_wrapper_s8_get_buffer_size
+
+arm_depthwise_separable_conv2x4_q15_q7_q31.o:
+         U __aeabi_assert
+00000001 T arm_depthwise_separable_conv2x4_q15_q7_q31
+
+arm_nn_mat_mult_kernel_q7_q15.o:
+00000001 T arm_nn_mat_mult_kernel_q7_q15
+
+arm_depthwise_transposed_conv2x4_q15_q7.o:
+00000001 T arm_depthwise_transposed_conv2x4_q15_q7
+00000001 T arm_depthwise_transposed_conv2x4_q15_q7_q31
+
+arm_depthwise_separable_conv_HWC_q7.o:
+         U __aeabi_memclr
+         U __aeabi_memcpy
+00000001 T arm_depthwise_separable_conv_HWC_q7
+
+arm_convolve_HWC_q7_fast.o:
+         U __aeabi_memclr
+00000001 T arm_convolve_HWC_q7_fast
+         U arm_nn_mat_mult_kernel_q7_q15_reordered
+         U arm_q7_to_q15_reordered_no_shift
+
+arm_convolve_1_x_n_s8.o:
+00000001 T arm_convolve_1_x_n_s8
+00000001 T arm_convolve_1_x_n_s8_get_buffer_size
+         U arm_nn_mat_mul_core_1x_s8
+         U arm_nn_mat_mul_core_4x_s8
+         U __stack_chk_fail
+         U __stack_chk_guard
+
+arm_depthwise_conv_s8.o:
+00000001 T arm_depthwise_conv_s8
+
+arm_convolve_HWC_q7_basic_nonsquare.o:
+         U __aeabi_memclr
+00000001 T arm_convolve_HWC_q7_basic_nonsquare
+         U arm_nn_mat_mult_kernel_q7_q15
+         U arm_q7_to_q15_no_shift
+
+arm_nn_depthwise_conv_s8_core.o:
+00000001 T arm_nn_depthwise_conv_s8_core
+
+arm_depthwise_conv_u8_basic_ver1.o:
+00000001 T arm_depthwise_conv_u8_basic_ver1
+
+arm_depthwise_conv_s8_opt.o:
+00000001 T arm_depthwise_conv_s8_opt
+00000001 T arm_depthwise_conv_s8_opt_get_buffer_size
+         U arm_nn_depthwise_conv_nt_t_padded_s8
+         U arm_nn_depthwise_conv_nt_t_s8
+
+arm_convolve_wrapper_s8.o:
+         U arm_convolve_1x1_s8_fast
+         U arm_convolve_1x1_s8_fast_get_buffer_size
+         U arm_convolve_1_x_n_s8
+         U arm_convolve_1_x_n_s8_get_buffer_size
+         U arm_convolve_s8
+         U arm_convolve_s8_get_buffer_size
+00000001 T arm_convolve_wrapper_s8
+00000001 T arm_convolve_wrapper_s8_get_buffer_size
+
+arm_nn_mat_mult_kernel_s8_s16_reordered.o:
+00000001 T arm_nn_mat_mult_kernel_s8_s16_reordered
+
+arm_convolve_HWC_q7_RGB.o:
+00000001 T arm_convolve_HWC_q7_RGB
+         U arm_nn_mat_mult_kernel_q7_q15
+
+arm_convolve_1x1_HWC_q7_fast_nonsquare.o:
+00000001 T arm_convolve_1x1_HWC_q7_fast_nonsquare
+         U arm_nn_mat_mult_kernel_q7_q15_reordered
+         U arm_q7_to_q15_reordered_no_shift
+
+arm_nn_mat_mult_s8.o:
+00000001 T arm_nn_mat_mult_s8
+
+arm_convolve_HWC_q15_basic.o:
+         U __aeabi_memclr
+         U __aeabi_memcpy
+00000001 T arm_convolve_HWC_q15_basic
+
+arm_convolve_HWC_q7_basic.o:
+         U __aeabi_memclr
+00000001 T arm_convolve_HWC_q7_basic
+         U arm_nn_mat_mult_kernel_q7_q15
+         U arm_q7_to_q15_no_shift
+
+arm_nn_mat_mult_kernel_q7_q15_reordered.o:
+00000001 T arm_nn_mat_mult_kernel_q7_q15_reordered
+
+arm_convolve_s8.o:
+         U __aeabi_memset
+00000001 T arm_convolve_s8
+00000001 T arm_convolve_s8_get_buffer_size
+         U arm_nn_mat_mul_core_4x_s8
+         U arm_nn_mat_mult_s8
+         U __stack_chk_fail
+         U __stack_chk_guard
+
+arm_convolve_HWC_q15_fast.o:
+         U __aeabi_memclr
+         U __aeabi_memcpy
+00000001 T arm_convolve_HWC_q15_fast
+
+arm_fully_connected_q15.o:
+00000001 T arm_fully_connected_q15
+00000001 T arm_fully_connected_q15_q15_q31_out_q63
+
+arm_fully_connected_q7.o:
+00000001 T arm_fully_connected_q7
+         U arm_q7_to_q15_reordered_no_shift
+
+arm_fully_connected_q7_opt.o:
+00000001 T arm_fully_connected_q7_opt
+         U arm_q7_to_q15_reordered_no_shift
+
+arm_fully_connected_q15_q7_q31.o:
+00000001 T arm_fully_connected_q15_q7_q31
+00000001 T arm_fully_connected_q15_q7_q31_q31
+
+arm_fully_connected_mat_q7_vec_q15.o:
+00000001 T arm_fully_connected_mat_q7_vec_q15
+
+arm_fully_connected_mat_q7_vec_q15_opt.o:
+00000001 T arm_fully_connected_mat_q7_vec_q15_opt
+
+arm_fully_connected_q15_opt.o:
+00000001 T arm_fully_connected_q15_opt
+
+arm_fully_connected_s8.o:
+00000001 T arm_fully_connected_s8
+00000001 T arm_fully_connected_s8_get_buffer_size
+         U arm_nn_vec_mat_mult_t_s8
+
+arm_nn_mult_q15.o:
+00000001 T arm_nn_mult_q15
+
+arm_nn_mult_q7.o:
+00000001 T arm_nn_mult_q7
+
+arm_nn_depthwise_conv_nt_t_padded_s8.o:
+00000001 T arm_nn_depthwise_conv_nt_t_padded_s8
+
+arm_q7_to_q15_no_shift.o:
+00000001 T arm_q7_to_q15_no_shift
+
+arm_nntables.o:
+00000000 R sigmoidHTable_q15
+00000000 R sigmoidLTable_q15
+00000000 R sigmoidTable_q15
+00000000 R sigmoidTable_q7
+00000000 R tanhHTable_q15
+00000000 R tanhLTable_q15
+00000000 R tanhTable_q15
+00000000 R tanhTable_q7
+
+arm_nn_vec_mat_mult_t_svdf_s8.o:
+00000001 T arm_nn_vec_mat_mult_t_svdf_s8
+
+arm_nn_accumulate_q7_to_q15.o:
+00000001 T arm_nn_accumulate_q7_to_q15
+
+arm_nn_mat_mul_core_4x_s8.o:
+00000001 T arm_nn_mat_mul_core_4x_s8
+
+arm_q7_to_q15_with_offset.o:
+00000001 T arm_q7_to_q15_with_offset
+
+arm_nn_add_q7.o:
+00000001 T arm_nn_add_q7
+
+arm_q7_to_q15_reordered_no_shift.o:
+00000001 T arm_q7_to_q15_reordered_no_shift
+
+arm_nn_depthwise_conv_nt_t_s8.o:
+00000001 T arm_nn_depthwise_conv_nt_t_s8
+
+arm_nn_mat_mul_core_1x_s8.o:
+00000001 T arm_nn_mat_mul_core_1x_s8
+
+arm_q7_to_q15_reordered_with_offset.o:
+00000001 T arm_q7_to_q15_reordered_with_offset
+
+arm_avgpool_s8.o:
+00000001 T arm_avgpool_s8
+00000001 T arm_avgpool_s8_get_buffer_size
+
+arm_pool_q7_HWC.o:
+         U __aeabi_memmove
+00000001 T arm_avepool_q7_HWC
+00000001 T arm_maxpool_q7_HWC
+         U arm_q7_to_q15_no_shift
+
+arm_max_pool_s8.o:
+         U __aeabi_memcpy
+00000001 T arm_max_pool_s8
+
+arm_reshape_s8.o:
+         U __aeabi_memcpy
+00000001 T arm_reshape_s8
+
+arm_softmax_s8.o:
+00000001 T arm_softmax_s8
+
+arm_softmax_with_batch_q7.o:
+         U arm_softmax_q7
+00000001 T arm_softmax_with_batch_q7
+
+arm_softmax_u8.o:
+00000001 T arm_softmax_u8
+
+arm_softmax_q15.o:
+         U __aeabi_ldivmod
+00000001 T arm_softmax_q15
+
+arm_softmax_q7.o:
+00000001 T arm_softmax_q7

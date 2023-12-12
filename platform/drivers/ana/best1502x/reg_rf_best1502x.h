@@ -1,0 +1,288 @@
+/***************************************************************************
+ *
+ * Copyright 2015-2022 BES.
+ * All rights reserved. All unpublished rights reserved.
+ *
+ * No part of this work may be used or reproduced in any form or by any
+ * means, or stored in a database or retrieval system, without prior written
+ * permission of BES.
+ *
+ * Use of this work is governed by a license granted by BES.
+ * This work contains confidential and proprietary information of
+ * BES. which is protected by copyright, trade secret,
+ * trademark and other intellectual property rights.
+ *
+ ****************************************************************************/
+#ifndef __REG_RF_BEST1502X_H__
+#define __REG_RF_BEST1502X_H__
+
+#include "plat_types.h"
+
+// REG_101
+#define REG_BT_RCOSC_CAL_RESETN             (1 << 6)
+#define REG_BT_RCOSC_CAL_START              (1 << 7)
+#define REG_BT_RCOSC_CAL_TIME_SEL_SHIFT     8
+#define REG_BT_RCOSC_CAL_TIME_SEL_MASK      (0x7 << REG_BT_RCOSC_CAL_TIME_SEL_SHIFT)
+#define REG_BT_RCOSC_CAL_TIME_SEL(n)        BITFIELD_VAL(REG_BT_RCOSC_CAL_TIME_SEL, n)
+#define REG_RCOSC_LDO_VSEL_SHIFT            11
+#define REG_RCOSC_LDO_VSEL_MASK             (0x3 << REG_RCOSC_LDO_VSEL_SHIFT)
+#define REG_RCOSC_LDO_VSEL(n)               BITFIELD_VAL(REG_RCOSC_LDO_VSEL, n)
+#define REG_RCOSC_PU                        (1 << 13)
+#define REG_BG_VLDO_SHIFT                   14
+#define REG_BG_VLDO_MASK                    (0x3 << REG_BG_VLDO_SHIFT)
+#define REG_BG_VLDO(n)                      BITFIELD_VAL(REG_BG_VLDO, n)
+// REG_102
+#define REG_BT_XTAL_PU_BUF_SHIFT            0
+#define REG_BT_XTAL_PU_BUF_MASK             (0xFF << REG_BT_XTAL_PU_BUF_SHIFT)
+#define REG_BT_XTAL_PU_BUF(n)               BITFIELD_VAL(REG_BT_XTAL_PU_BUF, n)
+#define REG_BT_XTAL_PU_BUF_SLEEP_SHIFT      8
+#define REG_BT_XTAL_PU_BUF_SLEEP_MASK       (0xFF << REG_BT_XTAL_PU_BUF_SLEEP_SHIFT)
+#define REG_BT_XTAL_PU_BUF_SLEEP(n)         BITFIELD_VAL(REG_BT_XTAL_PU_BUF_SLEEP, n)
+// REG_103
+#define REG_BT_XTAL_CMOM_SHIFT              0
+#define REG_BT_XTAL_CMOM_MASK               (0x1FF << REG_BT_XTAL_CMOM_SHIFT)
+#define REG_BT_XTAL_CMOM(n)                 BITFIELD_VAL(REG_BT_XTAL_CMOM, n)
+#define REG_XTAL_FX2_DAC_EN_DR              (1 << 9)
+// REG_104
+#define REG_XTAL_DBL_EN                     (1 << 0)
+#define REG_XTAL_EN_CLKOUT                  (1 << 1)
+#define REG_XTAL_FX2_DAC_EN_T               (1 << 2)
+#define REG_XTAL_FX4_EN                     (1 << 3)
+#define REG_XTAL_LDO_MODE_SEL               (1 << 4)
+#define REG_XTAL_MANAAC_EN                  (1 << 5)
+#define REG_XTAL_MANKICK                    (1 << 6)
+#define REG_XTAL_MANKICK_EN                 (1 << 7)
+#define REG_XTAL_PU_DIV1024                 (1 << 8)
+#define REG_XTAL_RCOSC_CAL_EN               (1 << 9)
+#define REG_XTAL_STARTUP_EN                 (1 << 10)
+#define REG_XTAL_STARTUP_INJ_MODE           (1 << 11)
+#define REG_XTAL_IC_RES_SHIFT               12
+#define REG_XTAL_IC_RES_MASK                (0xF << REG_XTAL_IC_RES_SHIFT)
+#define REG_XTAL_IC_RES(n)                  BITFIELD_VAL(REG_XTAL_IC_RES, n)
+// REG_105
+#define REG_XTAL_KICK_DRV_SEL_SHIFT         0
+#define REG_XTAL_KICK_DRV_SEL_MASK          (0x3 << REG_XTAL_KICK_DRV_SEL_SHIFT)
+#define REG_XTAL_KICK_DRV_SEL(n)            BITFIELD_VAL(REG_XTAL_KICK_DRV_SEL, n)
+#define REG_XTAL_STARTUP_SEL_DRV_SHIFT      2
+#define REG_XTAL_STARTUP_SEL_DRV_MASK       (0x3 << REG_XTAL_STARTUP_SEL_DRV_SHIFT)
+#define REG_XTAL_STARTUP_SEL_DRV(n)         BITFIELD_VAL(REG_XTAL_STARTUP_SEL_DRV, n)
+#define REG_XTAL_FX4_CAP1_SHIFT             4
+#define REG_XTAL_FX4_CAP1_MASK              (0x3 << REG_XTAL_FX4_CAP1_SHIFT)
+#define REG_XTAL_FX4_CAP1(n)                BITFIELD_VAL(REG_XTAL_FX4_CAP1, n)
+#define REG_XTAL_PO_CTRL_SHIFT              6
+#define REG_XTAL_PO_CTRL_MASK               (0x3 << REG_XTAL_PO_CTRL_SHIFT)
+#define REG_XTAL_PO_CTRL(n)                 BITFIELD_VAL(REG_XTAL_PO_CTRL, n)
+#define REG_XTAL_SEL_DRV_HP_OTHER_SHIFT     8
+#define REG_XTAL_SEL_DRV_HP_OTHER_MASK      (0x3 << REG_XTAL_SEL_DRV_HP_OTHER_SHIFT)
+#define REG_XTAL_SEL_DRV_HP_OTHER(n)        BITFIELD_VAL(REG_XTAL_SEL_DRV_HP_OTHER, n)
+#define REG_XTAL_STARTUP_CNT_1ST_SHIFT      10
+#define REG_XTAL_STARTUP_CNT_1ST_MASK       (0x3F << REG_XTAL_STARTUP_CNT_1ST_SHIFT)
+#define REG_XTAL_STARTUP_CNT_1ST(n)         BITFIELD_VAL(REG_XTAL_STARTUP_CNT_1ST, n)
+// REG_106
+#define REG_XTAL_STARTUP_CNT_HOLD_SHIFT     0
+#define REG_XTAL_STARTUP_CNT_HOLD_MASK      (0x3F << REG_XTAL_STARTUP_CNT_HOLD_SHIFT)
+#define REG_XTAL_STARTUP_CNT_HOLD(n)        BITFIELD_VAL(REG_XTAL_STARTUP_CNT_HOLD, n)
+#define REG_XTAL_STARTUP_RC_SHIFT           6
+#define REG_XTAL_STARTUP_RC_MASK            (0xF << REG_XTAL_STARTUP_RC_SHIFT)
+#define REG_XTAL_STARTUP_RC(n)              BITFIELD_VAL(REG_XTAL_STARTUP_RC, n)
+#define REG_XTAL_BUF_RC_CLKOUT_SHIFT        10
+#define REG_XTAL_BUF_RC_CLKOUT_MASK         (0x3 << REG_XTAL_BUF_RC_CLKOUT_SHIFT)
+#define REG_XTAL_BUF_RC_CLKOUT(n)           BITFIELD_VAL(REG_XTAL_BUF_RC_CLKOUT, n)
+#define REG_XTAL_FX4_CAP2_SHIFT             12
+#define REG_XTAL_FX4_CAP2_MASK              (0x3 << REG_XTAL_FX4_CAP2_SHIFT)
+#define REG_XTAL_FX4_CAP2(n)                BITFIELD_VAL(REG_XTAL_FX4_CAP2, n)
+#define REG_XTAL_SEL_DRV_OTHER_SHIFT        14
+#define REG_XTAL_SEL_DRV_OTHER_MASK         (0x3 << REG_XTAL_SEL_DRV_OTHER_SHIFT)
+#define REG_XTAL_SEL_DRV_OTHER(n)           BITFIELD_VAL(REG_XTAL_SEL_DRV_OTHER, n)
+// REG_107
+#define REG_XTAL_RCOSC_FRE_TRIM_SHIFT       0
+#define REG_XTAL_RCOSC_FRE_TRIM_MASK        (0x1FF << REG_XTAL_RCOSC_FRE_TRIM_SHIFT)
+#define REG_XTAL_RCOSC_FRE_TRIM(n)          BITFIELD_VAL(REG_XTAL_RCOSC_FRE_TRIM, n)
+#define REG_XTAL_STARTUP_ROTATE_SHIFT       9
+#define REG_XTAL_STARTUP_ROTATE_MASK        (0x7 << REG_XTAL_STARTUP_ROTATE_SHIFT)
+#define REG_XTAL_STARTUP_ROTATE(n)          BITFIELD_VAL(REG_XTAL_STARTUP_ROTATE, n)
+#define REG_XTAL_BUF_RC_OTHER_SHIFT         12
+#define REG_XTAL_BUF_RC_OTHER_MASK          (0xF << REG_XTAL_BUF_RC_OTHER_SHIFT)
+#define REG_XTAL_BUF_RC_OTHER(n)            BITFIELD_VAL(REG_XTAL_BUF_RC_OTHER, n)
+// REG_108
+#define REG_XTAL_STARTUP_INJ_PERIOD_SHIFT   0
+#define REG_XTAL_STARTUP_INJ_PERIOD_MASK    (0x3F << REG_XTAL_STARTUP_INJ_PERIOD_SHIFT)
+#define REG_XTAL_STARTUP_INJ_PERIOD(n)      BITFIELD_VAL(REG_XTAL_STARTUP_INJ_PERIOD, n)
+#define REG_XTAL_STARTUP_PO_FINE_TUNE_SHIFT 6
+#define REG_XTAL_STARTUP_PO_FINE_TUNE_MASK  (0x1F << REG_XTAL_STARTUP_PO_FINE_TUNE_SHIFT)
+#define REG_XTAL_STARTUP_PO_FINE_TUNE(n)    BITFIELD_VAL(REG_XTAL_STARTUP_PO_FINE_TUNE, n)
+#define REG_XTAL_ICORE_SEL_SHIFT            11
+#define REG_XTAL_ICORE_SEL_MASK             (0x1F << REG_XTAL_ICORE_SEL_SHIFT)
+#define REG_XTAL_ICORE_SEL(n)               BITFIELD_VAL(REG_XTAL_ICORE_SEL, n)
+// REG_109
+#define REG_XTAL_STARTUP_IBIAS_SHIFT        0
+#define REG_XTAL_STARTUP_IBIAS_MASK         (0xF << REG_XTAL_STARTUP_IBIAS_SHIFT)
+#define REG_XTAL_STARTUP_IBIAS(n)           BITFIELD_VAL(REG_XTAL_STARTUP_IBIAS, n)
+#define REG_XTAL_RCOSC_DLY_SHIFT            4
+#define REG_XTAL_RCOSC_DLY_MASK             (0x3 << REG_XTAL_RCOSC_DLY_SHIFT)
+#define REG_XTAL_RCOSC_DLY(n)               BITFIELD_VAL(REG_XTAL_RCOSC_DLY, n)
+#define REG_XTAL_RCOSC_OFFSET_SHIFT         6
+#define REG_XTAL_RCOSC_OFFSET_MASK          (0x3 << REG_XTAL_RCOSC_OFFSET_SHIFT)
+#define REG_XTAL_RCOSC_OFFSET(n)            BITFIELD_VAL(REG_XTAL_RCOSC_OFFSET, n)
+#define REG_XTAL_STARTUP_CNT_NEXT_SHIFT     8
+#define REG_XTAL_STARTUP_CNT_NEXT_MASK      (0xFF << REG_XTAL_STARTUP_CNT_NEXT_SHIFT)
+#define REG_XTAL_STARTUP_CNT_NEXT(n)        BITFIELD_VAL(REG_XTAL_STARTUP_CNT_NEXT, n)
+// REG_10A
+#define REG_XTAL_AMP_SHIFT                  0
+#define REG_XTAL_AMP_MASK                   (0x7 << REG_XTAL_AMP_SHIFT)
+#define REG_XTAL_AMP(n)                     BITFIELD_VAL(REG_XTAL_AMP, n)
+#define REG_XTAL_X2X4_RC_OUT_OTHER_SHIFT    3
+#define REG_XTAL_X2X4_RC_OUT_OTHER_MASK     (0xF << REG_XTAL_X2X4_RC_OUT_OTHER_SHIFT)
+#define REG_XTAL_X2X4_RC_OUT_OTHER(n)       BITFIELD_VAL(REG_XTAL_X2X4_RC_OUT_OTHER, n)
+#define REG_XTAL_LDO_VTUNE_OTHER_SHIFT      7
+#define REG_XTAL_LDO_VTUNE_OTHER_MASK       (0x7 << REG_XTAL_LDO_VTUNE_OTHER_SHIFT)
+#define REG_XTAL_LDO_VTUNE_OTHER(n)         BITFIELD_VAL(REG_XTAL_LDO_VTUNE_OTHER, n)
+#define REG_XTAL_RCOSC_MODE_SHIFT           10
+#define REG_XTAL_RCOSC_MODE_MASK            (0x3 << REG_XTAL_RCOSC_MODE_SHIFT)
+#define REG_XTAL_RCOSC_MODE(n)              BITFIELD_VAL(REG_XTAL_RCOSC_MODE, n)
+#define REG_XTAL_BUF_RC_SSC_OTHER_SHIFT     12
+#define REG_XTAL_BUF_RC_SSC_OTHER_MASK      (0xF << REG_XTAL_BUF_RC_SSC_OTHER_SHIFT)
+#define REG_XTAL_BUF_RC_SSC_OTHER(n)        BITFIELD_VAL(REG_XTAL_BUF_RC_SSC_OTHER, n)
+// REG_10B
+#define REG_XTAL_FX2_CAP1_SHIFT             0
+#define REG_XTAL_FX2_CAP1_MASK              (0xF << REG_XTAL_FX2_CAP1_SHIFT)
+#define REG_XTAL_FX2_CAP1(n)                BITFIELD_VAL(REG_XTAL_FX2_CAP1, n)
+#define REG_XTAL_FX2_CAP2_SHIFT             4
+#define REG_XTAL_FX2_CAP2_MASK              (0xF << REG_XTAL_FX2_CAP2_SHIFT)
+#define REG_XTAL_FX2_CAP2(n)                BITFIELD_VAL(REG_XTAL_FX2_CAP2, n)
+// REG_10D
+#define REG_BT_XTAL_PRECHARGE_VALUE_SHIFT   0
+#define REG_BT_XTAL_PRECHARGE_VALUE_MASK    (0x7 << REG_BT_XTAL_PRECHARGE_VALUE_SHIFT)
+#define REG_BT_XTAL_PRECHARGE_VALUE(n)      BITFIELD_VAL(REG_BT_XTAL_PRECHARGE_VALUE, n)
+#define REG_BT_XTAL_PRECHARGE               (1 << 3)
+#define REG_BT_XTAL_PRECHARGE_DR            (1 << 4)
+#define REG_BT_XTAL_STABLE_DR               (1 << 5)
+#define REG_BT_XTAL_STABLE                  (1 << 6)
+#define REG_BT_XTAL_PU_DR                   (1 << 7)
+#define REG_BT_XTAL_PU                      (1 << 8)
+#define REG_PU_BT_XTAL_DLY_SHIFT            9
+#define REG_PU_BT_XTAL_DLY_MASK             (0x1F << REG_PU_BT_XTAL_DLY_SHIFT)
+#define REG_PU_BT_XTAL_DLY(n)               BITFIELD_VAL(REG_PU_BT_XTAL_DLY, n)
+#define REG_FX2_PU_DR                       (1 << 14)
+#define REG_FX4_PU_DR                       (1 << 15)
+// REG_10E
+#define REG_BT_XTAL_PU_BUF_HP_SHIFT         0
+#define REG_BT_XTAL_PU_BUF_HP_MASK          (0x1F << REG_BT_XTAL_PU_BUF_HP_SHIFT)
+#define REG_BT_XTAL_PU_BUF_HP(n)            BITFIELD_VAL(REG_BT_XTAL_PU_BUF_HP, n)
+#define REG_BT_XTAL_PU_BUF_HP_SLEEP_SHIFT   5
+#define REG_BT_XTAL_PU_BUF_HP_SLEEP_MASK    (0x1F << REG_BT_XTAL_PU_BUF_HP_SLEEP_SHIFT)
+#define REG_BT_XTAL_PU_BUF_HP_SLEEP(n)      BITFIELD_VAL(REG_BT_XTAL_PU_BUF_HP_SLEEP, n)
+// REG_10F
+#define REG_BG_SEL_IBIAS_SHIFT              4
+#define REG_BG_SEL_IBIAS_MASK               (0x7 << REG_BG_SEL_IBIAS_SHIFT)
+#define REG_BG_SEL_IBIAS(n)                 BITFIELD_VAL(REG_BG_SEL_IBIAS, n)
+#define REG_BG_SEL_TEMP_SHIFT               7
+#define REG_BG_SEL_TEMP_MASK                (0x7 << REG_BG_SEL_TEMP_SHIFT)
+#define REG_BG_SEL_TEMP(n)                  BITFIELD_VAL(REG_BG_SEL_TEMP, n)
+#define REG_XTAL_STARTUP_RELEASE_EN         (1 << 10)
+#define REG_XTAL_FX2_CAL_EN                 (1 << 11)
+#define REG_XTAL_DIV_EN                     (1 << 12)
+// REG_110
+#define RESERVED_XTAL_SHIFT                 0
+#define RESERVED_XTAL_MASK                  (0xFFFF << RESERVED_XTAL_SHIFT)
+#define RESERVED_XTAL(n)                    BITFIELD_VAL(RESERVED_XTAL, n)
+// REG_117
+#define DIG_BT_RCOSC_CAL_CNT_SHIFT          0
+#define DIG_BT_RCOSC_CAL_CNT_MASK           (0x7FFF << DIG_BT_RCOSC_CAL_CNT_SHIFT)
+#define DIG_BT_RCOSC_CAL_CNT(n)             BITFIELD_VAL(DIG_BT_RCOSC_CAL_CNT, n)
+#define DIG_BT_RCOSC_CAL_DONE               (1 << 15)
+// REG_119
+#define REG_XTAL_BUF_RC_CH22_SHIFT          0
+#define REG_XTAL_BUF_RC_CH22_MASK           (0xF << REG_XTAL_BUF_RC_CH22_SHIFT)
+#define REG_XTAL_BUF_RC_CH22(n)             BITFIELD_VAL(REG_XTAL_BUF_RC_CH22, n)
+#define REG_XTAL_BUF_RC_CH46_SHIFT          4
+#define REG_XTAL_BUF_RC_CH46_MASK           (0xF << REG_XTAL_BUF_RC_CH46_SHIFT)
+#define REG_XTAL_BUF_RC_CH46(n)             BITFIELD_VAL(REG_XTAL_BUF_RC_CH46, n)
+#define REG_XTAL_BUF_RC_CH70_SHIFT          8
+#define REG_XTAL_BUF_RC_CH70_MASK           (0xF << REG_XTAL_BUF_RC_CH70_SHIFT)
+#define REG_XTAL_BUF_RC_CH70(n)             BITFIELD_VAL(REG_XTAL_BUF_RC_CH70, n)
+// REG_11A
+#define REG_XTAL_X2X4_RC_OUT_CH22_SHIFT     0
+#define REG_XTAL_X2X4_RC_OUT_CH22_MASK      (0xF << REG_XTAL_X2X4_RC_OUT_CH22_SHIFT)
+#define REG_XTAL_X2X4_RC_OUT_CH22(n)        BITFIELD_VAL(REG_XTAL_X2X4_RC_OUT_CH22, n)
+#define REG_XTAL_X2X4_RC_OUT_CH46_SHIFT     4
+#define REG_XTAL_X2X4_RC_OUT_CH46_MASK      (0xF << REG_XTAL_X2X4_RC_OUT_CH46_SHIFT)
+#define REG_XTAL_X2X4_RC_OUT_CH46(n)        BITFIELD_VAL(REG_XTAL_X2X4_RC_OUT_CH46, n)
+#define REG_XTAL_X2X4_RC_OUT_CH70_SHIFT     8
+#define REG_XTAL_X2X4_RC_OUT_CH70_MASK      (0xF << REG_XTAL_X2X4_RC_OUT_CH70_SHIFT)
+#define REG_XTAL_X2X4_RC_OUT_CH70(n)        BITFIELD_VAL(REG_XTAL_X2X4_RC_OUT_CH70, n)
+// REG_11B
+#define REG_XTAL_LDO_VTUNE_CH22_SHIFT       0
+#define REG_XTAL_LDO_VTUNE_CH22_MASK        (0x7 << REG_XTAL_LDO_VTUNE_CH22_SHIFT)
+#define REG_XTAL_LDO_VTUNE_CH22(n)          BITFIELD_VAL(REG_XTAL_LDO_VTUNE_CH22, n)
+#define REG_XTAL_LDO_VTUNE_CH46_SHIFT       3
+#define REG_XTAL_LDO_VTUNE_CH46_MASK        (0x7 << REG_XTAL_LDO_VTUNE_CH46_SHIFT)
+#define REG_XTAL_LDO_VTUNE_CH46(n)          BITFIELD_VAL(REG_XTAL_LDO_VTUNE_CH46, n)
+#define REG_XTAL_LDO_VTUNE_CH70_SHIFT       6
+#define REG_XTAL_LDO_VTUNE_CH70_MASK        (0x7 << REG_XTAL_LDO_VTUNE_CH70_SHIFT)
+#define REG_XTAL_LDO_VTUNE_CH70(n)          BITFIELD_VAL(REG_XTAL_LDO_VTUNE_CH70, n)
+// REG_11C
+#define REG_XTAL_BUF_RC_SSC_CH22_SHIFT      0
+#define REG_XTAL_BUF_RC_SSC_CH22_MASK       (0xF << REG_XTAL_BUF_RC_SSC_CH22_SHIFT)
+#define REG_XTAL_BUF_RC_SSC_CH22(n)         BITFIELD_VAL(REG_XTAL_BUF_RC_SSC_CH22, n)
+#define REG_XTAL_BUF_RC_SSC_CH46_SHIFT      4
+#define REG_XTAL_BUF_RC_SSC_CH46_MASK       (0xF << REG_XTAL_BUF_RC_SSC_CH46_SHIFT)
+#define REG_XTAL_BUF_RC_SSC_CH46(n)         BITFIELD_VAL(REG_XTAL_BUF_RC_SSC_CH46, n)
+#define REG_XTAL_BUF_RC_SSC_CH70_SHIFT      8
+#define REG_XTAL_BUF_RC_SSC_CH70_MASK       (0xF << REG_XTAL_BUF_RC_SSC_CH70_SHIFT)
+#define REG_XTAL_BUF_RC_SSC_CH70(n)         BITFIELD_VAL(REG_XTAL_BUF_RC_SSC_CH70, n)
+// REG_11D
+#define REG_XTAL_SEL_DRV_CH22_SHIFT         0
+#define REG_XTAL_SEL_DRV_CH22_MASK          (0x3 << REG_XTAL_SEL_DRV_CH22_SHIFT)
+#define REG_XTAL_SEL_DRV_CH22(n)            BITFIELD_VAL(REG_XTAL_SEL_DRV_CH22, n)
+#define REG_XTAL_SEL_DRV_CH46_SHIFT         2
+#define REG_XTAL_SEL_DRV_CH46_MASK          (0x3 << REG_XTAL_SEL_DRV_CH46_SHIFT)
+#define REG_XTAL_SEL_DRV_CH46(n)            BITFIELD_VAL(REG_XTAL_SEL_DRV_CH46, n)
+#define REG_XTAL_SEL_DRV_CH70_SHIFT         4
+#define REG_XTAL_SEL_DRV_CH70_MASK          (0x3 << REG_XTAL_SEL_DRV_CH70_SHIFT)
+#define REG_XTAL_SEL_DRV_CH70(n)            BITFIELD_VAL(REG_XTAL_SEL_DRV_CH70, n)
+#define REG_XTAL_SEL_DRV_HP_CH22_SHIFT      6
+#define REG_XTAL_SEL_DRV_HP_CH22_MASK       (0x3 << REG_XTAL_SEL_DRV_HP_CH22_SHIFT)
+#define REG_XTAL_SEL_DRV_HP_CH22(n)         BITFIELD_VAL(REG_XTAL_SEL_DRV_HP_CH22, n)
+#define REG_XTAL_SEL_DRV_HP_CH46_SHIFT      8
+#define REG_XTAL_SEL_DRV_HP_CH46_MASK       (0x3 << REG_XTAL_SEL_DRV_HP_CH46_SHIFT)
+#define REG_XTAL_SEL_DRV_HP_CH46(n)         BITFIELD_VAL(REG_XTAL_SEL_DRV_HP_CH46, n)
+#define REG_XTAL_SEL_DRV_HP_CH70_SHIFT      10
+#define REG_XTAL_SEL_DRV_HP_CH70_MASK       (0x3 << REG_XTAL_SEL_DRV_HP_CH70_SHIFT)
+#define REG_XTAL_SEL_DRV_HP_CH70(n)         BITFIELD_VAL(REG_XTAL_SEL_DRV_HP_CH70, n)
+
+enum RF_REG_T {
+    RF_REG_100     = 0x100,
+    RF_REG_101,
+    RF_REG_102,
+    RF_REG_103,
+    RF_REG_104,
+    RF_REG_105,
+    RF_REG_106,
+    RF_REG_107,
+    RF_REG_108,
+    RF_REG_109,
+    RF_REG_10A,
+    RF_REG_10B,
+    RF_REG_10C,
+    RF_REG_10D,
+    RF_REG_10E,
+    RF_REG_10F,
+    RF_REG_110,
+    RF_REG_111,
+    RF_REG_112,
+    RF_REG_113,
+    RF_REG_114,
+    RF_REG_115,
+    RF_REG_116,
+    RF_REG_117,
+    RF_REG_118,
+    RF_REG_119,
+    RF_REG_11A,
+    RF_REG_11B,
+    RF_REG_11C,
+    RF_REG_11D,
+};
+
+#endif
+

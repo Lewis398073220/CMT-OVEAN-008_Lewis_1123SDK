@@ -1,0 +1,11 @@
+make -j T=best1502x_ibrt_anc
+
+郭：
+make T=best1502x_ibrt_anc FREEMAN_ENABLED_STERO=1
+1123版SDK之后: make T=best1502x_ibrt_anc FREEMAN_ENABLED_STERO=1 FLASH_SIZE=0x400000 NEW_IMAGE_FLASH_OFFSET=0x200000 FLASH_REMAP=0
+
+编译 lst 文件:
+make T=best1502x_ibrt_anc FREEMAN_ENABLED_STERO=1 lst
+
+编译 OTA 文件:
+make T=prod_test/ota_copy -j

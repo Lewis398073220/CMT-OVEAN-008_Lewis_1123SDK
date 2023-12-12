@@ -1,0 +1,253 @@
+/***************************************************************************
+ *
+ * Copyright 2015-2023 BES.
+ * All rights reserved. All unpublished rights reserved.
+ *
+ * No part of this work may be used or reproduced in any form or by any
+ * means, or stored in a database or retrieval system, without prior written
+ * permission of BES.
+ *
+ * Use of this work is governed by a license granted by BES.
+ * This work contains confidential and proprietary information of
+ * BES. which is protected by copyright, trade secret,
+ * trademark and other intellectual property rights.
+ *
+ ****************************************************************************/
+#ifndef __DMA_AUDIO_STREAM_CONF_H__
+#define __DMA_AUDIO_STREAM_CONF_H__
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#if defined(DMA_AUDIO_8P463K) || defined(DMA_AUDIO_16P927K) || \
+    defined(DMA_AUDIO_50P781K) || defined(DMA_AUDIO_101P562K)
+#ifndef __AUDIO_RESAMPLE__
+#error "AUDIO_RESAMPLE should be defined for DMA AUDIO!"
+#endif
+#endif
+
+#if defined(DMA_AUDIO_8K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_8000)
+#elif defined(DMA_AUDIO_8P463K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_8463)
+#elif defined(DMA_AUDIO_16K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_16000)
+#elif defined(DMA_AUDIO_16P927K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_16927)
+#elif defined(DMA_AUDIO_32K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_32000)
+#elif defined(DMA_AUDIO_48K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_48000)
+#elif defined(DMA_AUDIO_50P781K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_50781)
+#elif defined(DMA_AUDIO_96K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_96000)
+#elif defined(DMA_AUDIO_101P562K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_101562)
+#elif defined(DMA_AUDIO_192K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_192000)
+#elif defined(DMA_AUDIO_384K)
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_384000)
+#else
+#define DMA_AUD_SAMP_RATE   (AUD_SAMPRATE_16000)
+#endif
+
+#if defined(DMA_AUDIO_8BIT)
+#define DMA_AUD_SAMP_BITS   (AUD_BITS_8)
+#define DMA_AUD_SAMP_SIZE   (1)
+#elif defined(DMA_AUDIO_16BIT)
+#define DMA_AUD_SAMP_BITS   (AUD_BITS_16)
+#define DMA_AUD_SAMP_SIZE   (2)
+#elif defined(DMA_AUDIO_24BIT)
+#define DMA_AUD_SAMP_BITS   (AUD_BITS_24)
+#define DMA_AUD_SAMP_SIZE   (4)
+#elif defined(DMA_AUDIO_32BIT)
+#define DMA_AUD_SAMP_BITS   (AUD_BITS_32)
+#define DMA_AUD_SAMP_SIZE   (4)
+#else
+#define DMA_AUD_SAMP_BITS   (AUD_BITS_16)
+#define DMA_AUD_SAMP_SIZE   (2)
+#endif
+
+#ifndef DMA_AUD_CHAN_NUM_PLAY
+#define DMA_AUD_CHAN_NUM_PLAY    (AUD_CHANNEL_NUM_2)
+#endif
+#define DMA_AUD_CHAN_MAP_PLAY    (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1)
+
+#ifdef DMA_AUDIO_USE_DIGMIC
+/* DIGITAL MICROPHONE number & map */
+#if defined(DMA_AUDIO_1CH)
+#define DMA_AUD_CHAN_NUM_CAP     (1)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0)
+#elif defined(DMA_AUDIO_2CH)
+#define DMA_AUD_CHAN_NUM_CAP     (2)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1)
+#elif defined(DMA_AUDIO_3CH)
+#define DMA_AUD_CHAN_NUM_CAP     (3)
+#ifdef AUDIO_OUTPUT_MULTI_DAC_SW_MERGE
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_ECMIC_CH0 | AUD_CHANNEL_MAP_ECMIC_CH1)
+#else
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1 | AUD_CHANNEL_MAP_DIGMIC_CH2)
+#endif
+#elif defined(DMA_AUDIO_4CH)
+#define DMA_AUD_CHAN_NUM_CAP     (4)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1 | AUD_CHANNEL_MAP_DIGMIC_CH2 | AUD_CHANNEL_MAP_DIGMIC_CH3)
+#elif defined(DMA_AUDIO_8CH)
+#define DMA_AUD_CHAN_NUM_CAP     (8)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1 \
+                                | AUD_CHANNEL_MAP_DIGMIC_CH2 | AUD_CHANNEL_MAP_DIGMIC_CH3 \
+                                | AUD_CHANNEL_MAP_DIGMIC_CH4 | AUD_CHANNEL_MAP_DIGMIC_CH5 \
+                                | AUD_CHANNEL_MAP_DIGMIC_CH6 | AUD_CHANNEL_MAP_DIGMIC_CH7)
+#else
+#define DMA_AUD_CHAN_NUM_CAP     (2)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1)
+#endif
+
+#define DMA_AUDIO_DEFAULT_ONE_CHAN_MAP (AUD_CHANNEL_MAP_DIGMIC_CH0)
+#define DMA_AUDIO_DEFAULT_TWO_CHAN_MAP (AUD_CHANNEL_MAP_DIGMIC_CH0 | AUD_CHANNEL_MAP_DIGMIC_CH1)
+
+#else /* !defined(DMA_AUDIO_USE_DIGMIC) */
+/* ANALOG MICROPHONE number & map */
+#if defined(DMA_AUDIO_1CH)
+#define DMA_AUD_CHAN_NUM_CAP     (1)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0)
+#elif defined(DMA_AUDIO_2CH)
+#define DMA_AUD_CHAN_NUM_CAP     (2)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1)
+#elif defined(DMA_AUDIO_3CH)
+#define DMA_AUD_CHAN_NUM_CAP     (3)
+#ifdef AUDIO_OUTPUT_MULTI_DAC_SW_MERGE
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_ECMIC_CH0 | AUD_CHANNEL_MAP_ECMIC_CH1)
+#else
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1 | AUD_CHANNEL_MAP_CH2)
+#endif
+#elif defined(DMA_AUDIO_4CH)
+#define DMA_AUD_CHAN_NUM_CAP     (4)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1 | AUD_CHANNEL_MAP_CH2 | AUD_CHANNEL_MAP_CH3)
+#elif defined(DMA_AUDIO_8CH)
+#define DMA_AUD_CHAN_NUM_CAP     (8)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1 \
+                                | AUD_CHANNEL_MAP_CH2 | AUD_CHANNEL_MAP_CH3 \
+                                | AUD_CHANNEL_MAP_CH4 | AUD_CHANNEL_MAP_CH5 \
+                                | AUD_CHANNEL_MAP_CH6 | AUD_CHANNEL_MAP_CH7)
+#else
+#define DMA_AUD_CHAN_NUM_CAP     (2)
+#define DMA_AUD_CHAN_MAP_CAP     (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1)
+#endif
+
+#define DMA_AUDIO_DEFAULT_ONE_CHAN_MAP (AUD_CHANNEL_MAP_CH0)
+#define DMA_AUDIO_DEFAULT_TWO_CHAN_MAP (AUD_CHANNEL_MAP_CH0 | AUD_CHANNEL_MAP_CH1)
+#endif /* DMA_AUDIO_USE_DIGMIC */
+
+/* PLAYBACK STREAM DEVICE */
+#if defined(DMA_AUDIO_USE_DAC3)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_INT_CODEC3)
+#elif defined(DMA_AUDIO_USE_DAC2)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_INT_CODEC2)
+#elif defined(DMA_AUDIO_USE_DAC1)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_INT_CODEC)
+#elif defined(DMA_AUDIO_USE_TDM0_MASTER)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_TDM0_MASTER)
+#elif defined(DMA_AUDIO_USE_TDM1_MASTER)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_TDM1_MASTER)
+#elif defined(DMA_AUDIO_USE_I2S0_MASTER)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_I2S0_MASTER)
+#elif defined(DMA_AUDIO_USE_I2S1_MASTER)
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_I2S1_MASTER)
+#else
+#define DMA_AUD_PLAY_DEV    (AUD_STREAM_USE_INT_CODEC3)
+#endif
+
+/* CAPTURE STREAM DEVICE */
+#if defined(DMA_AUDIO_USE_ADC3)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_INT_CODEC3)
+#elif defined(DMA_AUDIO_USE_ADC2)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_INT_CODEC2)
+#elif defined(DMA_AUDIO_USE_ADC1)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_INT_CODEC)
+#elif defined(DMA_AUDIO_USE_TDM0_SLAVE)
+#if 1
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_TDM0_SLAVE)
+#else
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_TDM0_MASTER)
+#endif
+#elif defined(DMA_AUDIO_USE_TDM1_SLAVE)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_TDM1_SLAVE)
+#elif defined(DMA_AUDIO_USE_I2S0_SLAVE)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_I2S0_SLAVE)
+#elif defined(DMA_AUDIO_USE_I2S1_SLAVE)
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_I2S1_SLAVE)
+#else
+#define DMA_AUD_CAPT_DEV    (AUD_STREAM_USE_INT_CODEC2)
+#endif
+
+#if defined(DMA_AUDIO_USE_TDM0_SLAVE)  ||  defined(DMA_AUDIO_USE_TDM1_SLAVE)  ||  \
+    defined(DMA_AUDIO_USE_TDM0_MASTER) ||  defined(DMA_AUDIO_USE_TDM1_MASTER) ||  \
+    defined(DMA_AUDIO_USE_I2S0_SLAVE)  ||  defined(DMA_AUDIO_USE_I2S1_SLAVE)  ||  \
+    defined(DMA_AUDIO_USE_I2S0_MASTER) ||  defined(DMA_AUDIO_USE_I2S1_MASTER)
+#define DMA_AUDIO_USE_TDM_I2S
+#endif
+
+/* TDM data format */
+#define DMA_AUDIO_TDM_ALIGN   AUD_DATA_ALIGN_I2S
+#define DMA_AUDIO_TDM_FS_EDGE AUD_FS_FIRST_EDGE_POS
+#define DMA_AUDIO_TDM_FS_CYCLES 1
+
+#define SAMP_CNT_PER_MS(rate) ((rate+1000-1)/1000)
+
+#if defined(DMA_AUDIO_101P562K)
+#define REAL_DMA_AUD_SAMP_RATE (93750)
+#ifdef AUDIO_OUTPUT_MULTI_DAC_SW_MERGE
+/* the dma IRQ period is (1000000/93750)*(96/2) = 512 us*/
+#define PLAY_BUFF_SAMP_NUM     (96)
+#define CAP_BUFF_SAMP_NUM      (96)
+#endif
+#else /* !defined(DMA_AUDIO_101P562K) */
+#define REAL_DMA_AUD_SAMP_RATE (DMA_AUD_SAMP_RATE)
+#endif
+
+#ifdef PSAP_SW_APP
+/* For PSAP_SW_APP, the dma IRQ period is 4/2 = 2ms */
+#define PLAY_BUFF_SAMP_NUM (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2*2)
+#define CAP_BUFF_SAMP_NUM  (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2*2)
+#elif defined(DMA_AUDIO_SCO_MODE)
+/* For SCO mode, the dma IRQ period is 3/2 = 1.5ms */
+#define PLAY_BUFF_SAMP_NUM (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*3)
+#define CAP_BUFF_SAMP_NUM  (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*3)
+#endif
+
+#if !defined(PLAY_BUFF_SAMP_NUM) && !defined(CAP_BUFF_SAMP_NUM)
+#if defined(DMA_AUDIO_LOW_LATENCY)
+#if !defined(RTOS)
+/********* NO RTOS *********/
+#define PLAY_BUFF_SAMP_NUM (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2)
+#define CAP_BUFF_SAMP_NUM  (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2)
+#else /* defined(RTOS) */
+/********* WITH RTOS *********/
+#define PLAY_BUFF_SAMP_NUM (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2)
+#define CAP_BUFF_SAMP_NUM  (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)*2)
+#endif /* RTOS */
+
+#else /* ! DMA_AUDIO_LOW_LATENCY */
+#define PLAY_BUFF_SAMP_NUM (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE) * 4)
+#define CAP_BUFF_SAMP_NUM  (SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE) * 4)
+#endif /* DMA_AUDIO_LOW_LATENCY */
+#endif
+
+#define PLAY_BUFF_SIZE      (PLAY_BUFF_SAMP_NUM * DMA_AUD_SAMP_SIZE * DMA_AUD_CHAN_NUM_PLAY)
+#define CAP_BUFF_SIZE       (CAP_BUFF_SAMP_NUM * DMA_AUD_SAMP_SIZE * DMA_AUD_CHAN_NUM_CAP)
+
+#define PLAY_BUFF_MAX_SIZE  (PLAY_BUFF_SAMP_NUM * DMA_AUD_SAMP_SIZE * DMA_AUD_CHAN_NUM_PLAY)
+#define CAP_BUFF_MAX_SIZE   (CAP_BUFF_SAMP_NUM * DMA_AUD_SAMP_SIZE * DMA_AUD_CHAN_NUM_CAP)
+
+#define PLAY_MIPS_SAMP     (PLAY_BUFF_SIZE/DMA_AUD_SAMP_SIZE/DMA_AUD_CHAN_NUM_PLAY/2)
+#define CAP_MIPS_SAMP      (CAP_BUFF_SIZE/DMA_AUD_SAMP_SIZE/DMA_AUD_CHAN_NUM_CAP/2)
+#define PLAY_MIPS_MAX_US   (PLAY_MIPS_SAMP*1000/(SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)))
+#define CAP_MIPS_MAX_US    (CAP_MIPS_SAMP*1000/(SAMP_CNT_PER_MS(REAL_DMA_AUD_SAMP_RATE)))
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

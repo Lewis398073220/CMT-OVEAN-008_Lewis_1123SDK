@@ -1,0 +1,125 @@
+#### LE-Audio related feature ####
+export BLE_AUDIO_ENABLED := 1
+export SUPPORT_REMOTE_COD := 1
+export BLE_AUDIO_SHARE_ME_ENABLED ?= 1
+
+ifeq ($(BLE_AUDIO_ENABLED),1)
+export BLE := 1
+export BLE_CONNECTION_MAX := 3
+export HOST_GEN_ECDH_KEY := 1
+export BLE_IP_VERSION := v11_0_7
+export IS_BLE_FLAGS_ADV_DATA_CONFIGURED_BY_APP_LAYER := 1
+export BLE_AUDIO_DOLPHIN_COMPATIBLE_SUPPORT := 1
+#export BLE_AUDIO_STARLORD_COMPATIBLE_SUPPORT := 1
+export REPORT_EVENT_TO_CUSTOMIZED_UX := 0
+export ALIGNED_WITH_FINAL_AOB_SPEC := 0
+export PROMPT_SELF_MANAGEMENT := 1
+export CTKD_ENABLE := 1
+export IS_CTKD_OVER_BR_EDR_ENABLED := 1
+export UES_MIC_AS_THE_LE_AUD_INPUT := 1
+export BLE_AUDIO_24BIT := 1
+export BLE_NEW_SWAGC_MODE := 1
+
+#GFPS need RPA
+export BLE_ADV_RPA_ENABLED := 1
+
+export IS_USE_NEW_LC3_CODEC := 1
+export AOB_LOW_LATENCY_MODE := 0
+export AOB_MOBILE_ENABLED := 0
+
+export CHIP_HAS_CP := 1
+export AOB_CODEC_CP := 0
+export FAST_RAM_RUN_LC3_CODEC := 1
+export A2DP_CP_ACCEL := 1
+export SCO_CP_ACCEL := 1
+
+ifeq ($(BLE_AUDIO_SHARE_ME_ENABLED) , 1)
+export AOB_MOBILE_ENABLED := 0
+export AUDIO_OUTPUT_ROUTE_SELECT := 1
+export BLE_BIS_TRANSPORT := 1
+export A2DP_EQ_24BIT := 0
+export PLAYBACK_FORCE_48K := 1
+export BLE_AUDIO_TEST_ENABLED := 0
+export BLE_AUDIO_DOLPHIN_COMPATIBLE_SUPPORT := 0
+export BLE_AUDIO_STARLORD_COMPATIBLE_SUPPORT := 1
+export MCU_HIGH_PERFORMANCE_MODE := 0
+export REPORT_EVENT_TO_CUSTOMIZED_UX := 1
+
+export AUDIO_BUFFER_SIZE := 130*1024
+endif
+
+endif
+#### LE-Audio related feature end####
+
+# export BLE_STACK_NEW_DESIGN := 1
+
+export BT_RAMRUN := 1
+export GATT_OVER_BR_EDR := 0
+
+# GFPS is google fastpair service
+# GFPS is an isolated service relative to BISTO
+export GFPS_ENABLE := 1
+export SASS_ENABLE := 1
+export SPOT_ENABLE := 1
+#### Google related feature ####
+
+# micro-soft feature #
+export SWIFT_ENABLE := 1
+
+export FLASH_SIZE  := 0x400000
+# export RAMCP_SIZE  := 0x40000
+# export RAMCPX_SIZE := 0x20000
+
+# slim ram
+export SCO_OPTIMIZE_FOR_RAM := 0
+export USE_OVERLAY_TXT_GAP  := 1
+export BT_USE_COHEAP_ALLOC  := 1
+export UNIFY_HEAP_ENABLED   := 1
+export FAST_RAM_OPTIMIZE    := 0
+export FAST_XRAM_SECTION_SIZE := 0x1b000
+
+# slim flash
+export PROMPT_IN_FLASH 		:= 0
+export USE_TRACE_ID 		:= 0
+export OTA_BIN_COMPRESSED 	:= 0
+export BT_RAMRUN_BIN_COMPRESSED := 0
+
+# cap-sensor
+export CAPSENSOR_ENABLE	:= 0
+ifeq ($(CAPSENSOR_ENABLE),1)
+export CAPSENSOR_HAL_SPI := 1
+export SPI_IOMUX_4WIRE := 1
+export SPI_IOMUX_DI0_INDEX := 1
+export CAPSENSOR_TOUCH := 1
+export CAPSENSOR_WEAR := 1
+export CAPSENSOR_SPP_SERVER := 1
+export CAPSENSOR_AT_MCU := 1
+export CHIP_CAPSENSOR_VER := 2
+export CAPSENSOR_FP_MODE := 1
+export CAPSENSOR_TRACE_DEBUG := 0
+endif
+
+# ota
+export BES_OTA := 1
+export FLASH_REMAP := 0
+
+export MCU_I2C_SLAVE := 0
+export APP_TRACE_RX_ENABLE := 0
+export BT_DEBUG_TPORTS := 0
+# export IGNORE_POWER_ON_KEY_DURING_BOOT_UP := 1
+# export IS_AUTOPOWEROFF_ENABLED := 0
+# export POWER_ON_ENTER_TWS_PAIRING_ENABLED := 1
+# export FREE_TWS_PAIRING_ENABLED := 0
+
+SPEECH_TX_2MIC_NS4 ?= 0
+ifeq ($(SPEECH_TX_2MIC_NS4),1)
+export SPEECH_TX_2MIC_SWAP_CHANNELS ?= 1
+export SPEECH_CODEC_FIXED_SAMPLE_RATE := 16000
+export SPEECH_VQE_FIXED_SAMPLE_RATE := 16000
+endif
+export BT_UPDATE_ACTIVE_DEVICE_WHEN_INCOMING_CALL := 1
+export BT_HOST_REJECT_UNEXCEPT_SCO_PACKET := 1
+# dual sco feature
+export AUTO_ACCEPT_SECOND_SCO := 0
+
+include config/best1502x_ibrt_anc/target.mk
